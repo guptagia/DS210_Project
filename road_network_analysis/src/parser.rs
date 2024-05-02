@@ -1,8 +1,8 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::collections::HashMap;
 
-type ListOfEdges = Vec<(usize, usize)>;
+
+pub type ListOfEdges = Vec<(usize, usize)>;
 
 // Read a list of edges from a file
 pub fn read_file(path: &str) -> ListOfEdges {
@@ -12,7 +12,7 @@ pub fn read_file(path: &str) -> ListOfEdges {
     for line in buf_reader {
         let line_str = line.expect("Error reading");
         if line_str.starts_with('#') {
-            continue; // Skip comment lines
+            continue; 
         }
         let v: Vec<&str> = line_str.trim().split_whitespace().collect();
         if v.len() == 2 {
