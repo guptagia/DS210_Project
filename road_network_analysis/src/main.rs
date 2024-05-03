@@ -20,7 +20,12 @@ fn main() {
     }
 
     // Identify connected components in the graph
-    let components = analysis::connected_components(&graph);
+    let components = clusters::connected_components(&graph);
     println!("Number of connected components: {}", components.len());
+    
+    for (i, component) in components.iter().enumerate() {
+        println!("Component {}: {:?}", i + 1, component);  // List components
+    }
 }
+
 

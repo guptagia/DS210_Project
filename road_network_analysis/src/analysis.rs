@@ -1,8 +1,7 @@
 // src/analysis.rs
-use std::collections::HashMap;
-use super::graph::{Graph, Vertex};
-use std::collections::HashSet;
-use std::collections::VecDeque;  
+use std::collections::HashMap;  // Importing multiple collections
+use crate::graph::Graph;  // Importing Graph structure
+ 
 
 
 // Calculate the average distance between pairs of vertices
@@ -35,33 +34,3 @@ pub fn degree_distribution(graph: &Graph) -> HashMap<usize, usize> {
     degree_count
 }
 
-// Identify connected components in the graph
-pub fn connected_components(graph: &Graph) -> Vec<HashSet<Vertex>> {
-    let mut visited = HashSet::new();
-    let mut components = Vec::new();
-
-    for i in 0..graph.n {
-        if !visited.contains(&i) {
-            let mut component = HashSet::new();
-            let mut queue = VecDeque::new();
-
-            queue.push_back(i);
-            visited.insert(i);
-
-            while let Some(current) = queue.pop_front() {
-                component.insert(current);
-
-                for &neighbor in &graph.outedges[current] {
-                    if !visited.contains(&neighbor) {
-                        queue.push_back(neighbor);
-                        visited.insert(neighbor);
-                    }
-                }
-            }
-
-            components.push(component);
-        }
-    }
-
-    components
-}

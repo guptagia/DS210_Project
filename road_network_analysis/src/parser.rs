@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-
 pub type ListOfEdges = Vec<(usize, usize)>;
 
 // Read a list of edges from a file
