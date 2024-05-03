@@ -3,22 +3,26 @@ use std::io::{BufRead, BufReader};
 
 pub type ListOfEdges = Vec<(usize, usize)>;
 
-// Read a list of edges from a file
-pub fn read_file(path: &str) -> ListOfEdges {
+pub fn read_file() -> ListOfEdges {
+    let file_path = "./data/roadNet-CA.txt"; 
     let mut result = ListOfEdges::new();
-    let file = File::open(path).expect("Could not open file");
+    
+    let file = File::open(file_path).expect(&format!("Could not open file: {}", file_path));
     let buf_reader = BufReader::new(file).lines();
+    
     for line in buf_reader {
         let line_str = line.expect("Error reading");
         if line_str.starts_with('#') {
-            continue; 
+            continue;
         }
-        let v: Vec<&str> = line_str.trim().split_whitespace().collect();
-        if v.len() == 2 {
-            let x = v[0].parse::<usize>().unwrap();
-            let y = v[1].parse::<usize>().unwrap();
+
+        let parts: Vec<&str> = line_str.trim().split_whitespace().collect();
+        if parts.len() == 2 {
+            let x = parts[0].parse::<usize>().unwrap();
+            let y = parts[1].parse::<usize>().unwrap();
             result.push((x, y));
         }
     }
+    
     result
 }

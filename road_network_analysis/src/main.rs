@@ -3,7 +3,8 @@ mod graph;
 mod analysis;
 mod clusters;
 fn main() {
-    let edges = parser::read_file("roadNet-CA.txt"); 
+
+    let edges = parser::read_file();  // No argument needed here
 
     // Creating an undirected graph from the list of edges
     let graph = graph::Graph::create_undirected(1965206, &edges); 
@@ -22,7 +23,7 @@ fn main() {
     // Identify connected components in the graph
     let components = clusters::connected_components(&graph);
     println!("Number of connected components: {}", components.len());
-    
+
     for (i, component) in components.iter().enumerate() {
         println!("Component {}: {:?}", i + 1, component);  // List components
     }

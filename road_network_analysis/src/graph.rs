@@ -1,4 +1,3 @@
-// src/graph.rs
 use std::collections::VecDeque;
 use std::collections::HashMap;
 use crate::parser::ListOfEdges;
@@ -8,8 +7,8 @@ type AdjacencyLists = Vec<Vec<Vertex>>;
 
 #[derive(Debug)]
 pub struct Graph {
-    pub n: usize, // number of vertices
-    pub outedges: AdjacencyLists, // adjacency lists representing out-edges
+    pub n: usize, 
+    pub outedges: AdjacencyLists, 
 }
 
 impl Graph {
@@ -28,13 +27,12 @@ impl Graph {
         let mut g = Self::create_directed(n, edges);
         for (u, v) in edges {
             g.outedges[*u].push(*v);
-            g.outedges[*v].push(*u); // Add the reverse edge for undirected graphs
+            g.outedges[*v].push(*u); 
         }
         g.sort_graph_lists();
         g
     }
 
-    // Sort the adjacency lists to maintain order
     fn sort_graph_lists(&mut self) {
         for l in self.outedges.iter_mut() {
             l.sort();

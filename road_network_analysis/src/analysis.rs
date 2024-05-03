@@ -1,8 +1,5 @@
-// src/analysis.rs
-use std::collections::HashMap;  // Importing multiple collections
-use crate::graph::Graph;  // Importing Graph structure
- 
-
+use std::collections::HashMap; 
+use crate::graph::Graph;  
 
 // Calculate the average distance between pairs of vertices
 pub fn average_distance(graph: &Graph) -> f64 {
