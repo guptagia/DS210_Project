@@ -32,5 +32,6 @@ functionâ€”including data parsing, graph building, and analytical computationsâ€
 OUTPUT
 Average Distance Between Vertices: This function estimates the average distance between vertices and gives information about how dispersed and connected the road network is.
 Degree Distribution: Provides the graph's degree distribution as a formatted list that indicates the degree and the quantity of vertices that possess it. This measure is essential to comprehending the road network's topology.
-Result
+
+RESULT
 The project produced an average calculated distance of 306.14 between vertices, indicating a widely dispersed network typical of large-scale road networks. Significant insights were gleaned from the degree distribution: most vertices have one or two connections (321,028 and 204,755 respectively), typical for linear road segments and simple intersections, while 6,075 vertices are isolated (degree 0), indicating unused or endpoint sections. Higher degree vertices (up to 12) draw attention to intricate intersections or significant network hubs that are essential for managing traffic flow and urban planning. This analysis aids in planning network expansions and improving network connectivity in addition to helping to comprehend the current network structure.
